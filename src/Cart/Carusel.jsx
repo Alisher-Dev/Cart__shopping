@@ -12,13 +12,13 @@ export default class SimpleSlider extends Component {
       slidesToScroll: 1
     };
     return (
-      <Box overflow={'hidden'}>
-        <Slider {...settings}>
+      <Box overflow={'hidden'} cursor='pointer'>
+        <Slider {...settings} >
           <Box >
-            <img src="https://www.galax.com/media/wysiwyg/corpsite/page/30series/gx/SG-website-banner_04.png" alt="error" className="CaruselImg"/>
+            <img src="https://overclockers.ru/st/legacy/blog/151718/318633_O.jpg" alt="error" className="CaruselImg"/>
           </Box>
           <Box >
-            <img src="https://www.kfa2.com/media/wysiwyg/corpsite/section/ninezero-1920x600-k2.jpg" alt="error" className="CaruselImg"/>
+            <img src="https://overclockers.ru/st/legacy/blog/151718/286636_O.jpg" alt="error" className="CaruselImg"/>
           </Box>
         </Slider>
       </Box>

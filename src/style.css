@@ -83,20 +83,6 @@ p{
     margin-left: 10px;
 }
 
-.carousel-inner{
-    min-height: 200px;    
-    border-radius: 5px;
-}
-.carousel-item{
-    min-height: 200px;
-}
-
-.carousel-item > img{
-    min-height: 200px;
-    width: 100%;
-    object-fit:cover;
-}
-
 .Logo__Chor{
     opacity: 0.5;
     filter: brightness(50%);
@@ -118,6 +104,9 @@ p{
 .burgerMn{
     background: rgb(255, 255, 255) !important;
 }
+.colorWhite{
+    color: white;
+}
 
 .User__Name{
     background-color: rgb(225, 237, 251);
@@ -133,7 +122,7 @@ p{
     position: fixed;
     top: 0;
     backdrop-filter: blur(6px);
-    background-color: rgba(245, 245, 245, 0.912) !important;
+    background-color: rgba(255, 255, 255, 0.912) !important;
 }
 @keyframes scool {
     0%{
@@ -155,7 +144,7 @@ p{
     position: absolute;
     top: 0px;
     backdrop-filter: blur(6px);
-    background-color: rgba(245, 245, 245, 0.912) !important;
+    background-color: rgba(255, 255, 255, 0.912) !important;
 }
 @keyframes noscool {
     0%{
@@ -261,13 +250,16 @@ p{
 
 
 .block_Cart{
-    transition: all 0.3s ease-in;
+    border: 1px solid rgba(171, 171, 171, 0.2);
+    transition: all 0.1s ease-in;
 }
 
 .CaruselImg{
-    min-height: 180px;
+    min-height: 200px;
+    max-height: 500px;
     width: 100%;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 1279px){
@@ -304,13 +296,13 @@ p{
 
 @media (hover: hover) {
     .block_Cart:hover{
-        transform: scale(102%);
+        transform: scale(101%);
         z-index: 1;
     }
 }
 @media (hover: none) {
     .block_Cart:active{
-        transform: scale(102%);
+        transform: scale(101%);
     }
 }
 
