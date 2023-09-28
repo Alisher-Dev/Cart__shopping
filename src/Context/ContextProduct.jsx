@@ -6,8 +6,10 @@ const ProductProvider = ({children}) => {
 
     let [ Product, setProduct ] = useState([])
 
+    
+
     return( 
-        <ProductContext.Provider value={[ Product, setProduct ]}> 
+        <ProductContext.Provider value={{ Product, setProduct }}> 
             {children} 
         </ProductContext.Provider> 
     ) 

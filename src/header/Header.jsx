@@ -2,8 +2,9 @@ import { Box, Button, Container, Drawer, DrawerBody, DrawerContent, DrawerHeader
 import Logo from "../img/logo.png"
 import { HamburgerIcon, CloseIcon, PhoneIcon, Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons'
 import { Link, NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineAppstore, AiOutlineUser } from "react-icons/ai";
+import { ProductContext } from "../Context/ContextProduct";
 
 export default function Header() {
     let [ Ktmenu, setKtmenu ] = useState(true)
@@ -26,6 +27,8 @@ export default function Header() {
     }, [])
 
 
+    let { Product, setProduct } = useContext(ProductContext)
+    
     let [Like, setLike] = useState(true);
     let [Shop, setShop] = useState(true);
     let [Glob, setGlob] = useState(true);
@@ -112,6 +115,9 @@ export default function Header() {
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Shop ? '' : '2px solid rgba(30, 96, 218, 0.700)'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineShoppingCart fontSize={"26px"} color={Shop ? "rgba(89,49,244,0.700)" : "rgba(30, 96, 218, 0.900)"}/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color={Shop ? "rgba(89,49,244,0.700)" : "blue.500"}>корзина</Text>
+                        <Box alignItems='center' display={Product.length ? "flex" : 'none'}  justifyContent='center' w='24px' h='24px' borderRadius='30px' bg='red' position='absolute' top='-2' right='-8px'>
+                            <Text color='white' fontSize='16px' fontWeight='700'>{Product.length}</Text>
+                        </Box>
                     </Button>
                 </NavLink>
 

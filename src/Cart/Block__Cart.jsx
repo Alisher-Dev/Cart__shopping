@@ -2,22 +2,16 @@ import { Box, Button, ButtonGroup, Grid, Image, Text } from "@chakra-ui/react";
 import { BsFillHeartFill, BsBagDash } from "react-icons/bs";
 import { Link } from "react-router-dom"
 import { StoreContext, useStore } from "../Context/Context";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LikeContext } from "../Context/ContextLike";
 import { ProductContext } from "../Context/ContextProduct";
 
 export default function Block__Cart() {
-    
+
     let [ data, setData ] = useContext(StoreContext)
     let [ Like, setLike ] = useContext(LikeContext)
+    let { Product, setProduct } = useContext(ProductContext)
 
-    // function handelLike(id) {
-    //     let DataLike = data.filter((el) => {
-    //         return el.id == id
-    //     })
-    //     setLike((el) => [ ...el, DataLike[0] ])
-    // }
-    
     return (
             <Grid templateColumns={{ base: 'repeat(2, 3fr)', sm: 'repeat(2, 3fr)', md: 'repeat(3, 3fr)', lg: 'repeat(4, 3fr)', xl: 'repeat(5, 3fr)', "2xl": 'repeat(6, 3fr)' }} gap={{ base: 2, md: 4 }}>
                 {
@@ -32,10 +26,10 @@ export default function Block__Cart() {
                             <Box p={{base:'2px', md:"4px", lg:"7px"}}>
                                 <Text fontSize="14px" color='gray.700' fontWeight={500} minH={'40px'} overflow={'hidden'}>{item.title}</Text>
                             </Box>
-                            <Box p={{base:'2px', md:"4px", lg:"7px"}}>
-                                <ButtonGroup spacing='2' display={'flex'} alignItems={'center'} justifyContent={'space-between'} w={'100%'}>
+                            <Box p={{base:'2px', md:"4px", lg:"7px"}} h='50px'>
+                                <ButtonGroup spacing='2' display={'flex'} alignItems={'center'} position='absolute' bottom='5px' left='5px' right='5px' justifyContent={'space-between'} >
                                     <Text color='blue.600' fontSize={{ base: "13px", sm: '14px', md: "16px" }} fontWeight={"600"}>{item.price} som</Text>
-                                    <Button variant='solid' colorScheme='blue'>
+                                    <Button onClick={() => setProduct((el) => [ ...el, item ])} variant='solid' colorScheme='blue' >
                                         <BsBagDash />
                                     </Button>
                                 </ButtonGroup>

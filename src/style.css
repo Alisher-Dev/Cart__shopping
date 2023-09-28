@@ -247,11 +247,26 @@ p{
     margin-right: 10px;
 }
 
+.HoverProdCart{
+    transition: all 0.2s ease;
+    position: relative;
+    left: 0;
+    bottom: 0;
+}
+.HoverProdCart:hover{
+    box-shadow: -3px 3px 5px rgba(62, 42, 141, 0.26);
+    position: relative;
+    left: 3px;
+    bottom: 3px;
+}
 
 
 .block_Cart{
     border: 1px solid rgba(171, 171, 171, 0.2);
     transition: all 0.1s ease-in;
+    position: relative;
+    left: 0;
+    bottom: 0;
 }
 
 .CaruselImg{
@@ -261,6 +276,7 @@ p{
     object-fit: cover;
     border-radius: 10px;
 }
+
 
 @media screen and (max-width: 1279px){
     .img__{
@@ -297,7 +313,10 @@ p{
 @media (hover: hover) {
     .block_Cart:hover{
         transform: scale(101%);
+        left: 3px;
+        bottom: 3px;
         z-index: 1;
+        box-shadow: -3px 3px 5px rgba(45, 37, 78, 0.26);
     }
 }
 @media (hover: none) {
