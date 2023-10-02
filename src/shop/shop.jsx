@@ -11,11 +11,10 @@ export default function Shop() {
     let [ price, setPrice ] = useState(0)
     
     const Removtodo = (id) => {
-        let DelComponent = Product.filter((el) => {
+        let ProductRemove = Product.filter((el) => {
             return el.id !== id
         })
-        // setPrice((el) => el + el.price)
-        // console.log(DelComponent);
+        setProduct(ProductRemove)
     }
 
     return(

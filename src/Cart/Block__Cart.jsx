@@ -12,6 +12,20 @@ export default function Block__Cart() {
     let [ Like, setLike ] = useContext(LikeContext)
     let { Product, setProduct } = useContext(ProductContext)
 
+    let AddProduct = (Item) => {
+        let idPro = []
+        Product.map((el) => {
+            idPro.push(el.id)
+        })
+        console.log(idPro);
+        if (idPro.indexOf(Item.id) == -1) {
+            setProduct((el) => [ ...el, Item ])
+        }
+        else{
+            console.log('no');
+        }
+    }
+
     return (
             <Grid templateColumns={{ base: 'repeat(2, 3fr)', sm: 'repeat(2, 3fr)', md: 'repeat(3, 3fr)', lg: 'repeat(4, 3fr)', xl: 'repeat(5, 3fr)', "2xl": 'repeat(6, 3fr)' }} gap={{ base: 2, md: 4 }}>
                 {
@@ -29,7 +43,7 @@ export default function Block__Cart() {
                             <Box p={{base:'2px', md:"4px", lg:"7px"}} h='50px'>
                                 <ButtonGroup spacing='2' display={'flex'} alignItems={'center'} position='absolute' bottom='5px' left='5px' right='5px' justifyContent={'space-between'} >
                                     <Text color='blue.600' fontSize={{ base: "13px", sm: '14px', md: "16px" }} fontWeight={"600"}>{item.price} som</Text>
-                                    <Button onClick={() => setProduct((el) => [ ...el, item ])} variant='solid' colorScheme='blue' >
+                                    <Button onClick={() => AddProduct(item)} variant='solid' colorScheme='blue' >
                                         <BsBagDash />
                                     </Button>
                                 </ButtonGroup>
