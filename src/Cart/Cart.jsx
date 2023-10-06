@@ -2,13 +2,14 @@ import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import Mini__box from "./Mini__box";
 import Block__Cart from "./Block__Cart";
 import CenterMode from "./Carusel";   
+import Loading from "./loading";
 
 export default function Cart() {
     return(
         <Box display='flex' flexDirection='column' alignItems='center'>
             <Box maxW='1300px' w='100%' p="5px 10px">
             
-                <CenterMode/>
+                <CenterMode />
 
                 <Box mt={'30px'} display={{base:"none", xl:"block"}}>
                     <Text fontSize={{base:"20px", sm:"22px", lg:'26px', xl:"26px"}} fontWeight={"bold"} color={"gray.600"}>Популярные категории</Text>
@@ -35,6 +36,9 @@ export default function Cart() {
                 <Flex minH={'150px'} maxH='320px' mt={"60px"} mb={"60px"} overflow={"hidden"} alignItems={"center"} justifyContent={"center"} borderRadius={"20px"}>
                     <img className="img__cart" src="https://www.amd.com/system/files/2021-05/795377-amd-W6800-video-still-1920x600.jpg"/>
                 </Flex>
+
+                <Loading/>
+
             </Box>
         </Box>
     )

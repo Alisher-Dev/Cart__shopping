@@ -44,11 +44,13 @@ export default function Header() {
         <Box h={{base:"70px",lg:"100px"}} w='100%' display='flex' justifyContent='center'>
         <Flex flexDirection={"column"} className={ScrolL ? 'noscrolling' : 'scrolling'} transition={"all 0.4s ease"} zIndex={"10"} alignItems={"center"} justifyContent={"center"} h={{base:"70px",lg:"100px"}} maxW='1300px' w='100%' p="0 10px">
             <Box w={"100%"} justifyContent={{base:"space-between",lg:"start"}} alignItems={"center"} display={"flex"}>
+
             <Box display={{base:"flex", lg:"none"}} w='140px'>
                 <Button onClick={onOpen} justifyContent='start'>
                     <HamburgerIcon fontSize={{base:"26px", sm:"30px", md:"38px"}} color={"rgb(89,49,244)"}/>
                 </Button>
             </Box>
+
             <Drawer placement={placement} size={'full'} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay/>
                 <DrawerContent className='burgerMn'>
@@ -82,6 +84,8 @@ export default function Header() {
                 </DrawerBody>
                 </DrawerContent>
             </Drawer>
+
+            
             <Link to={"/"}>
                 <Box>
                     <img className="Logo" src={Logo} alt="" />
@@ -110,6 +114,8 @@ export default function Header() {
                     </Box>
                 </Button>
             </Box>
+
+
             <Flex display={{base:"none",lg:"flex"}} alignItems={'center'} ml={"20px"} justifyContent={"space-between"} w={"23%"}>
                 <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setShop(false) : setShop(true)}}>
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Shop ? '' : '2px solid rgba(30, 96, 218, 0.700)'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
@@ -120,7 +126,6 @@ export default function Header() {
                         </Box>
                     </Button>
                 </NavLink>
-
                 <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setLike(false) : setLike(true)}}>
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Like ? '' : '2px solid red'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineHeart fontSize={"26px"} color={Like ? 'rgba(89,49,244,0.700)' : 'red'}/>
@@ -135,8 +140,8 @@ export default function Header() {
                 </NavLink>
             </Flex>
             </Box>
-            {/* <Box display={{base:"none", lg:"flex"}} p={Ktmenu ? "0" : {base:"10px 15px",md:"10px 50px",lg:"10px 60px", xl:"10px 100px"}} justifyContent={"space-between"} alignItems={"center"} h={Ktmenu ? "0px" : "92vh"} className="Ktmenu" transition={"all 0.3s 0.1s ease"} w={"100%"} position={"fixed"} top={{base:"90px", lg:"100px"}} zIndex={10}>
-            </Box> */}
+            <Box display={{base:"none", lg:"flex"}} p={Ktmenu ? "0" : {base:"10px 15px",md:"10px 50px",lg:"10px 60px", xl:"10px 100px"}} justifyContent={"space-between"} alignItems={"center"} h={Ktmenu ? "0px" : "92vh"} className="Ktmenu" transition={"all 0.3s 0.1s ease"} w={"100%"} position={"fixed"} top={{base:"90px", lg:"100px"}} zIndex={10}>
+            </Box>
         </Flex>
         </Box>
     )

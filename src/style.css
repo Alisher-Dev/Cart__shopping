@@ -256,7 +256,6 @@ p{
 .HoverProdCart:hover{
     box-shadow: -3px 3px 5px rgba(62, 42, 141, 0.26);
     position: relative;
-    left: 3px;
     bottom: 3px;
 }
 
@@ -277,6 +276,30 @@ p{
     border-radius: 10px;
 }
 
+.BgLiniaGradient{
+    background: linear-gradient(to left top, rgb(152, 128, 245), rgba(151, 128, 245, 0.795), rgb(152, 128, 245));
+    backdrop-filter: blur(20px);
+}
+
+.menuWindow{
+    animation: window 0.5s linear 1 alternate;
+}
+
+
+@keyframes window {
+    0%{
+        margin: 0 0 50px;
+        opacity: 0;
+    }
+    40%{
+        margin: 0 0 -20px;
+        opacity: 0.8;
+    }
+    100%{
+        margin: 0;
+        opacity: 1;
+    }
+}
 
 @media screen and (max-width: 1279px){
     .img__{
@@ -313,10 +336,9 @@ p{
 @media (hover: hover) {
     .block_Cart:hover{
         transform: scale(101%);
-        left: 3px;
-        bottom: 3px;
+        bottom: 1px;
         z-index: 1;
-        box-shadow: -3px 3px 5px rgba(45, 37, 78, 0.26);
+        box-shadow: -2px 2px 5px rgba(45, 37, 78, 0.26);
     }
 }
 @media (hover: none) {
