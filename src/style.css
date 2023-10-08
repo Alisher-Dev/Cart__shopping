@@ -104,9 +104,6 @@ p{
 .burgerMn{
     background: rgb(255, 255, 255) !important;
 }
-.colorWhite{
-    color: white;
-}
 
 .User__Name{
     background-color: rgb(225, 237, 251);
@@ -166,7 +163,6 @@ p{
 
 .Ktmenu{
     background-color: #d9f3ffc7;
-    border-bottom:1px solid gray ;
 }
 .Ktmenu .__item{
     overflow: hidden;
@@ -277,7 +273,7 @@ p{
 }
 
 .BgLiniaGradient{
-    background: linear-gradient(to left top, rgb(152, 128, 245), rgba(151, 128, 245, 0.795), rgb(152, 128, 245));
+    background: linear-gradient(to left top, rgb(128, 99, 255), rgba(192, 176, 255, 0.801), rgb(128, 99, 255));
     backdrop-filter: blur(20px);
 }
 

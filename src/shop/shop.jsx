@@ -3,18 +3,44 @@ import Mini__box from "../Cart/Mini__box";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../Context/ContextProduct";
-import { AiTwotoneDelete } from "react-icons/ai";
+import { AiTwotoneDelete, AiOutlineCheck } from "react-icons/ai";
+import { TodoContext } from "../Context/ContextTodo";
 
 export default function Shop() {
+
+    let { TodoList, setTodoList } = useContext(TodoContext)
 
     let { Product, setProduct } = useContext(ProductContext)
     let [ price, setPrice ] = useState(0)
     
+    useEffect(() => {
+        for (let obj in Product) {
+            setPrice((totl) => totl += Product[obj].price)
+        }
+    }, [Product])
+
     const Removtodo = (id) => {
         let ProductRemove = Product.filter((el) => {
+            setPrice((totl) => totl -= el.price)
             return el.id !== id
         })
         setProduct(ProductRemove)
+    }
+
+    const todoAdd = () => {
+        Product.filter((el) => {
+            setTodoList((todo) => [...todo, el])
+        })
+        setProduct([])
+    }
+
+    const todoAddReseption = (el) => {
+        const DeletTodoAddres = Product.filter((todo) => {
+            setPrice((totl) => totl -= todo.price)
+            return todo.id !== el.id
+        })
+        setProduct(DeletTodoAddres)
+        setTodoList((TodoList) => [...TodoList, el])
     }
 
     return(
@@ -44,10 +70,14 @@ export default function Shop() {
                                         <Text color='gray.800' fontSize="16px" maxW='400px' textAlign='center' fontWeight="400">{ el.title }</Text>
                                     </Box>
                                     <Box display='flex' flexDirection='column' alignItems='center'>
-                                        <Text color='blue.600' fontWeight='600' fontSize='14px'>{el.price} som</Text>
-                                        <Box onClick={() => Removtodo(el.id)} display='flex' alignItems='center' justifyContent='space-between' w='90px' cursor='pointer' p='5px'>
+                                        <Box display='flex' onClick={() => todoAddReseption(el)} alignItems='center' justifyContent='space-between' w='100px' cursor='pointer' p='5px'>
+                                            <AiOutlineCheck color='green' fontSize='18px'/>
+                                            <Text color='green' fontSize='14px' fontWeight='500'>Оформить</Text>
+                                        </Box>
+                                        <Text color='blue.600' fontWeight='600' fontSize='14px'>{el.price} $</Text>
+                                        <Box onClick={() => Removtodo(el.id)} display='flex' alignItems='center' w='100px' cursor='pointer' p='5px'>
                                             <AiTwotoneDelete color='gray' fontSize='18px'/>
-                                            <Text color='gray.800' fontSize='14px' fontWeight='500'>Удалить</Text>
+                                            <Text color='gray.800' fontSize='14px' ml='5px' fontWeight='500'>Удалить</Text>
                                         </Box>
                                     </Box>
                                 </Box>
@@ -61,9 +91,9 @@ export default function Shop() {
                             <Box w='100%' h='250px' bg='gray.100' borderRadius='10px' position='sticky' top='63px' p='20px 10px'>
                                 <Text color='blue.500' fontSize='18px' textAlign='center' fontWeight='500' fontFamily='mono' mt='10px'>В корзине {Product.length} товара</Text>
                                 <Text color='gray.700' fontSize='18px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>Общая сумма:</Text>
-                                <Text color='black' fontSize='20px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>{price} som</Text>
+                                <Text color='black' fontSize='20px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>{price} $</Text>
                                 <Box w='100%' h='1px' bg='rgba(37, 37, 37, 0.4)' mt='35px'></Box>
-                                <Box display='flex' justifyContent='center' alignItems='center' h='85px'>
+                                <Box display='flex' onClick={() => todoAdd()} justifyContent='center' alignItems='center' h='85px'>
                                     <Button variant='unstyled' display='flex' color='white' p='30px 120px' bg='rgb(44, 17, 153)'>ОФОРМИТЬ</Button>
                                 </Box>
                             </Box>

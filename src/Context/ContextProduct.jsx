@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"; 
+import TodosProvider from "./ContextTodo";
 
 export const ProductContext = createContext({}) 
  
@@ -8,7 +9,9 @@ const ProductProvider = ({children}) => {
 
     return( 
         <ProductContext.Provider value={{ Product, setProduct }}> 
-            {children} 
+            <TodosProvider>
+                {children} 
+            </TodosProvider>
         </ProductContext.Provider> 
     ) 
 } 

@@ -19,9 +19,6 @@ export default function Block__Cart() {
         if (idPro.indexOf(Item.id) == -1) {
             setProduct((el) => [ ...el, Item ])
         }
-        else{
-            console.log('no');
-        }
     }
 
     let [ openProd, setopenProd ] = useState(false)
@@ -80,10 +77,10 @@ export default function Block__Cart() {
                 <Box maxW='1300px' w='100%' p="10px" h='90%' bg='gray.300' borderRadius='10px'>
                     <Grid templateColumns='repeat(2, 1fr)' h='60%' gap={2}>
                         <Box w='100%' h='100%' bg='gray.100' display='flex'>
-                            <Box w='15%' h='100%' bg='gray.100' mr='8px'>
+                            <Box w='20%' h='100%' bg='gray.100' mr='8px'>
                             </Box>
                             <Box w='85%' h='100%' bg='gray.100'>
-                                <Image src={TodoProd.thumbnail} w='100%' h='490px'/>
+                                <Image src={TodoProd.thumbnail} w='510px' h='510px' objectFit='fill'/>
                             </Box>
                         </Box>
                         <Box w='100%' h='100%' bg='gray.100' p='5px'>
