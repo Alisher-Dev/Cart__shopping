@@ -4,8 +4,8 @@ import "../style.css"
 
 export default function Footer() {
     return(
-        <Box bg={"gray.200"} display='flex' justifyContent='center'>
-            <Box display={"flex"} justifyContent={"space-between"} flexDirection={{base:"column",lg:"unset"}} maxW='1300px' w='100%' p="20px 10px">
+        <Box bg={"white"} display='flex' justifyContent='center'>
+            <Box display={"flex"} justifyContent={"space-between"} mt='10px' flexDirection={{base:"column",lg:"unset"}} maxW='1300px' w='100%' p="20px 10px">
                 <Box w={{base:"100%",lg:'20%' , xl:"25%"}} textAlign={{base:"center", lg:"start"}} display={{base:"flex", lg:"block"}} flexDirection={{base:"column", lg:"unset"}} alignItems={"center"} justifyContent={"center"}>
                     <img className="Logo__Chor" src={img__icon} width={'180px'} alt="" />
                     <Text fontSize='sm' color={"#6E7191"} m={"10px 0 20px"}>Оптовая продажа запчастей <br /> на все виды автотранспортных средств</Text>

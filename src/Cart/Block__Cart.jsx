@@ -73,7 +73,7 @@ export default function Block__Cart() {
                 }
             </Grid>
 
-            <Box w='100vw' h='100vh' position='fixed' top='0' left='0' bg='white' zIndex='10' display={openProd ? 'flex' : 'none'} alignItems='center' justifyContent='center'>
+            {/* <Box w='100vw' h='100vh' position='fixed' top='0' left='0' bg='white' zIndex='10' display={openProd ? 'flex' : 'none'} alignItems='center' justifyContent='center'>
                 <Box maxW='1300px' w='100%' p="10px" h='90%' bg='gray.300' borderRadius='10px'>
                     <Grid templateColumns='repeat(2, 1fr)' h='60%' gap={2}>
                         <Box w='100%' h='100%' bg='gray.100' display='flex'>
@@ -96,7 +96,7 @@ export default function Block__Cart() {
                     </Box>
                     <Button variant='unstyled' position='absolute' left='10px' top='10px' fontSize='18px' bg='gray.200' onClick={() => setopenProd(false)} color={"black"}>X</Button>
                 </Box>
-            </Box>
+            </Box> */}
 
         </>
     )
