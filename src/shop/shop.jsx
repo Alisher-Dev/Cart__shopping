@@ -34,14 +34,7 @@ export default function Shop() {
         setProduct([])
     }
 
-    const todoAddReseption = (el) => {
-        const DeletTodoAddres = Product.filter((todo) => {
-            setPrice((totl) => totl -= todo.price)
-            return todo.id !== el.id
-        })
-        setProduct(DeletTodoAddres)
-        setTodoList((TodoList) => [...TodoList, el])
-    }
+    
 
     return(
         <Box display='flex' flexDirection='column' alignItems='center'>
@@ -70,10 +63,6 @@ export default function Shop() {
                                         <Text color='gray.800' fontSize="16px" maxW='400px' textAlign='center' fontWeight="400">{ el.title }</Text>
                                     </Box>
                                     <Box display='flex' flexDirection='column' alignItems='center'>
-                                        <Box display='flex' onClick={() => todoAddReseption(el)} alignItems='center' justifyContent='space-between' w='100px' cursor='pointer' p='5px'>
-                                            <AiOutlineCheck color='green' fontSize='18px'/>
-                                            <Text color='green' fontSize='14px' fontWeight='500'>Оформить</Text>
-                                        </Box>
                                         <Text color='blue.600' fontWeight='600' fontSize='14px'>{el.price} $</Text>
                                         <Box onClick={() => Removtodo(el.id)} display='flex' alignItems='center' w='100px' cursor='pointer' p='5px'>
                                             <AiTwotoneDelete color='gray' fontSize='18px'/>

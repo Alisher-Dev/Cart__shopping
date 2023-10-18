@@ -12,8 +12,8 @@ function TodoCart() {
     return(
         <Box display='flex' flexDirection='column' alignItems='center'>
             <Box  maxW='1300px' w='100%' p="5px 10px" minH='800px'>
-                <Box w={'100%'} borderBottom='1px solid rgba(150,150,150,0.600)' position='relative' bgImage='https://wallpapercave.com/wp/wp6013030.jpg' bgSize='cover' bgRepeat='no-repeat' h='200px' borderRadius='10px' p='5px 0'>
-                    <Text color='black' fontSize='2xl' fontFamily="monospace" w='100%' position='absolute' bottom='0' left='0' p='0 0 0 20px' bg='rgba(171, 243, 253, 0.308)' backdropBlur='10px'> 
+                <Box w={'100%'} borderBottom='1px solid rgba(150,150,150,0.600)' position='relative' bgImage='https://www.iso.org/files/live/sites/isoorg/files/news/News_archive/2021/06/Ref2682/Ref2682.jpg/thumbnails/1200x300' bgSize='cover' bgRepeat='no-repeat' h='200px' borderRadius='10px' p='5px 0'>
+                    <Text color='black' fontSize='2xl' fontFamily="monospace" w='100%' position='absolute' bottom='0' left='0' p='0 0 0 20px' bg='rgba(168, 133, 250, 0.384)'> 
                         Alisher
                     </Text>
                 </Box>

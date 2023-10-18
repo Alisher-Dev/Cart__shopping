@@ -7,12 +7,14 @@ export default class SimpleSlider extends Component {
     const settings = {
       dots: true,
       infinite: true,
-      speed: 600,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 7000,
+      pauseOnHover: true
     };
     return (
-      <Box overflow={'hidden'} cursor='pointer'>
+      <Box overflow='hidden' cursor='pointer'>
         <Slider {...settings} >
           <Box >
             <img src="https://overclockers.ru/st/legacy/blog/151718/318633_O.jpg" alt="error" className="CaruselImg"/>
@@ -20,7 +22,7 @@ export default class SimpleSlider extends Component {
           <Box >
             <img src="https://overclockers.ru/st/legacy/blog/151718/286636_O.jpg" alt="error" className="CaruselImg"/>
           </Box>
-        </Slider>
+        </Slider>/
       </Box>
     );
   }

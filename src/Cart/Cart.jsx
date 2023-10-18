@@ -38,20 +38,22 @@ export default function Cart() {
                     <img className="img__cart" src="https://www.amd.com/system/files/2021-05/795377-amd-W6800-video-still-1920x600.jpg"/>
                 </Flex>
 
-                <Box w='100%' h='120px' mb='60px'>  
-                    <Box position='absolute' left='0' p='0 170px' bg='rgb(89,49,244)' h='150px' display={"flex"} alignItems='center' flexDirection={{base:"column", md:"unset"}} maxW='100%'>
+
+
+                <Loading/>
+
+                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2985.4272181652723!2d60.60504997660092!3d41.55999758527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfc93b02466799%3A0xeaa23fff9be8f49d!2sDarital!5e0!3m2!1sru!2s!4v1696947102084!5m2!1sru!2s" width="800" height="600" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe> */}
+
+            </Box>
+
+                <Box display={"flex"} alignItems='center' justifyContent='center' w='100%' minH='180px' mb='30px' bg='rgb(89,49,244)'>  
+                    <Box display='flex' justifyContent='space-between' alignItems='center' flexDirection={{base:"column", md:"unset"}} w='1300px' p="0 5px">
                         <Mini_info_Blok img="https://zapchasty.com.ua/i/deliver/1.png" title="У нас выгодные цены и доставка до дома" name="Больше не нужно ходить на базар"/> 
                         <Mini_info_Blok img="https://приваловнет.рф/wp-content/uploads/2022/07/%D0%91%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-42.png" title="Наш сервис удивит вас" name="Быстрая доставка"/> 
                         <Mini_info_Blok img="https://cdn-icons-png.flaticon.com/512/5064/5064889.png" title="Быстрое оформление и гарантия на возврат в случае неисправности" name="Удобства для вас" /> 
                     </Box>
                 </Box>
-
-
-                <Loading/>
-
-                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2985.4272181652723!2d60.60504997660092!3d41.55999758527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfc93b02466799%3A0xeaa23fff9be8f49d!2sDarital!5e0!3m2!1sru!2s!4v1696947102084!5m2!1sru!2s" width="800" height="600" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
-
-            </Box>
+                
         </Box>
     )
 }

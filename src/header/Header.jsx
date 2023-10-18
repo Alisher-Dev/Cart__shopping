@@ -41,7 +41,7 @@ export default function Header() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement, setPlacement] = useState('left')
     return(
-        <Box h={{base:"70px",lg:"100px"}} w='100%' display='flex' justifyContent='center'>
+        <Box h={{base:"70px",lg:"100px"}} w='100%' display='flex' justifyContent='center' boxShadow='0 5px 10px rgba(172, 152, 253, 0.150)'>
         <Flex flexDirection={"column"} className={ScrolL ? 'noscrolling' : 'scrolling'} transition={"all 0.4s ease"} zIndex={"10"} alignItems={"center"} justifyContent={"center"} h={{base:"70px",lg:"100px"}} maxW='1300px' w='100%' p="0 10px">
             <Box w={"100%"} justifyContent={{base:"space-between",lg:"start"}} alignItems={"center"} display={"flex"}>
 
@@ -61,21 +61,21 @@ export default function Header() {
                         </Button>
                     </Box>
                 <DrawerBody p={'0 5px'}>
-                    <NavLink to="/" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setGlob(false) : setGlob(true)}}>
+                    <NavLink to="/" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"} }}>
                         <Button onClick={onClose} bg={'gray.100'} variant={'unstyled'} borderBottom={Glob ? '' : '2px solid green'} h={"50px"} w={"100%"} p={"2px 15px"} display={"flex"} alignItems={"center"} justifyContent={'start'} mb={'10px'}>
                             <AiOutlineAppstore fontSize={"26px"} color={Glob ? 'rgba(89,49,244,0.700)' : 'green'}/>
                             <Text fontSize={"14px"} ml='5px' color={Glob ? 'rgba(89,49,244,0.700)' : 'green'}>общие</Text>
                         </Button>
                     </NavLink>
                     
-                    <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setLike(false) : setLike(true)}}>
+                    <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"} }}>
                         <Button onClick={onClose} bg={'gray.100'} variant={"unstyled"} borderBottom={Like ? '' : '2px solid red'} h={"50px"} w={"100%"} p={"2px 15px"} display={"flex"} alignItems={"center"} justifyContent={'start'} mb={'10px'}>
                             <AiOutlineHeart fontSize={"26px"} color={Like ? 'rgba(89,49,244,0.700)' : 'red'}/>
                             <Text fontSize={"14px"} ml='5px' color={Like ? 'rgba(89,49,244,0.700)' : 'red'}>Избранное</Text>
                         </Button>
                     </NavLink>
 
-                    <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setShop(false) : setShop(true)}}>
+                    <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"} }}>
                         <Button onClick={onClose} bg={'gray.100'} variant={"unstyled"} borderBottom={Shop ? '' : '2px solid rgba(30, 96, 218, 0.700)'} h={"50px"} w={"100%"} p={"2px 15px"} display={"flex"} alignItems={"center"} justifyContent={'start'} mb={'10px'}>
                             <AiOutlineShoppingCart fontSize={"26px"} color={Shop ? "rgba(89,49,244,0.700)" : "rgba(30, 96, 218, 0.700)"}/>
                             <Text fontSize={"14px"} ml='5px' color={Shop ? "rgba(89,49,244,0.700)" : "blue.500"}>Корзина</Text>
@@ -95,7 +95,7 @@ export default function Header() {
                 <Box alignItems={"center"} display='flex' justifyContent={"center"} h={"40px"} w={"40px"} mr='5px'> 
                     <Search2Icon fontSize="25px" color={"rgb(89,49,244)"}/>
                 </Box>
-                <NavLink to="/Cart" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setTodoCart(false) : setTodoCart(true)}}>
+                <NavLink to="/Cart" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
                     <Button variant={"unstyled"} borderBottom={TodoCart ? '' : '2px solid green'} h="40px" w='40px' p="0" display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineUser fontSize={"27px"} color={TodoCart ? 'rgba(90,10,200,1)' : 'green'}/>
                     </Button>
@@ -117,7 +117,7 @@ export default function Header() {
 
 
             <Flex display={{base:"none",lg:"flex"}} alignItems={'center'} ml={"20px"} justifyContent={"space-between"} w={"23%"}>
-                <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setShop(false) : setShop(true)}}>
+                <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"}}}>
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Shop ? '' : '2px solid rgba(30, 96, 218, 0.700)'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineShoppingCart fontSize={"26px"} color={Shop ? "rgba(89,49,244,0.700)" : "rgba(30, 96, 218, 0.900)"}/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color={Shop ? "rgba(89,49,244,0.700)" : "blue.500"}>корзина</Text>
@@ -126,13 +126,13 @@ export default function Header() {
                         </Box>
                     </Button>
                 </NavLink>
-                <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setLike(false) : setLike(true)}}>
+                <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Like ? '' : '2px solid red'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineHeart fontSize={"26px"} color={Like ? 'rgba(89,49,244,0.700)' : 'red'}/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color={Like ? 'rgba(89,49,244,0.700)' : 'red'}>нравиться</Text>
                     </Button>
                 </NavLink>
-                <NavLink to="/Cart" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}, isActive ? setTodoCart(false) : setTodoCart(true)}}>
+                <NavLink to="/Cart" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={TodoCart ? '' : '2px solid green'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineUser fontSize={"26px"} color={TodoCart ? 'rgba(89,49,244,0.700)' : 'green'}/>
                         <Text fontSize={"14px"} display={{lg:"none", xl:"block"}} color={TodoCart ? 'rgba(89,49,244,0.700)' : 'green'}>профиль</Text>
