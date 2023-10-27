@@ -2,27 +2,27 @@ import { Box, Button, ButtonGroup, Grid, Image, Skeleton, SkeletonText, Text } f
 import { BsFillHeartFill, BsBagDash } from "react-icons/bs";
 import { Link } from "react-router-dom"
 import { StoreContext } from "../Context/Context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProductContext } from "../Context/ContextProduct";
 
 export default function Block__Cart() {
 
-    let [ data, setData ] = useContext(StoreContext)
+    let [ data ] = useContext(StoreContext)
     let { Product, setProduct } = useContext(ProductContext)
     let { Like, setLike } = useContext(ProductContext)
 
     let AddProduct = (Item) => {
         let idPro = []
         Product.map(el => idPro.push(el.id))
-        if (idPro.indexOf(Item.id) == -1) {
+        if (idPro.indexOf(Item.id) === -1) {
             setProduct((el) => [ ...el, Item ])   
         }
     }
 
-    let idPro = []
     let AddLike = (Item) => {
+        let idPro = []
         Like.map(el => idPro.push(el.id))
-        if (idPro.indexOf(Item.id) == -1) {
+        if (idPro.indexOf(Item.id) === -1) {
             setLike((el) => [ ...el, Item ])   
         }
         else{
@@ -55,7 +55,7 @@ export default function Block__Cart() {
                 }
                 {
                     data.slice(0, 60).map((item, index) => (
-                        <Box key={index} className="block_Cart" overflow={'hidden'} borderRadius={'5px'} m={'0 auto'} position={'relative'} p={{base:'2px', md:"4px", lg:"7px"}} w='100%'>
+                        <Box key={index} className="block_Cart" zIndex={5} overflow={'hidden'} borderRadius={'5px'} m={'0 auto'} position={'relative'} p={{base:'2px', md:"4px", lg:"7px"}} w='100%'>
                             <Button variant={"unstyled"} onClick={() => AddLike(item)} p={{ base: "0", lg: "5px" }} position={"absolute"} bg='rgba(116, 116, 116, 0.500)' right={0} top={0} zIndex={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
                                 <BsFillHeartFill fontSize={"16px"} color={'rgb(255, 235, 235)'}/>
                             </Button>

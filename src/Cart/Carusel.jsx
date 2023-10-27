@@ -22,7 +22,7 @@ export default class SimpleSlider extends Component {
           <Box >
             <img src="https://overclockers.ru/st/legacy/blog/151718/286636_O.jpg" alt="error" className="CaruselImg"/>
           </Box>
-        </Slider>/
+        </Slider>
       </Box>
     );
   }

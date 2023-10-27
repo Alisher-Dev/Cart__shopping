@@ -9,7 +9,6 @@ import { TodoContext } from "../Context/ContextTodo";
 export default function Shop() {
 
     let { TodoList, setTodoList } = useContext(TodoContext)
-
     let { Product, setProduct } = useContext(ProductContext)
     let [ price, setPrice ] = useState(0)
     
@@ -34,8 +33,6 @@ export default function Shop() {
         setProduct([])
     }
 
-    
-
     return(
         <Box display='flex' flexDirection='column' alignItems='center'>
             <Box maxW='1300px' w='100%' p="5px 10px" position={"relative"} height={"auto"}>
@@ -55,7 +52,7 @@ export default function Shop() {
                         Product.length &&
                         Product.map((el, index) => {
                             return(
-                                <Box key={index} className="HoverProdCart" bg='gray.100' w='100%' display='flex' alignItems='center' justifyContent='space-between' p={'10px 30px'} borderRadius='10px' overflow='hidden' mb='25px'>
+                                <Box key={index} className="HoverProdCart" boxShadow='0 0 15px rgba(172, 152, 253, 0.300)' w='100%' display='flex' alignItems='center' justifyContent='space-between' p={'10px 30px'} borderRadius='10px' overflow='hidden' mb='25px'>
                                     <Box w='110px'>
                                         <Image borderRadius='15px' h='100px' w='120px' objectFit='cover' src={ el.thumbnail }/>
                                     </Box>
@@ -77,7 +74,7 @@ export default function Shop() {
                     {
                         Product.length &&
                         <Box w='35%' minH='100%' p='5px'>
-                            <Box w='100%' h='250px' bg='gray.100' borderRadius='10px' position='sticky' top='63px' p='20px 10px'>
+                            <Box w='100%' h='250px' boxShadow='0 0 15px rgba(172, 152, 253, 0.300)' borderRadius='10px' position='sticky' top='63px' p='20px 10px'>
                                 <Text color='blue.500' fontSize='18px' textAlign='center' fontWeight='500' fontFamily='mono' mt='10px'>В корзине {Product.length} товара</Text>
                                 <Text color='gray.700' fontSize='18px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>Общая сумма:</Text>
                                 <Text color='black' fontSize='20px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>{price} $</Text>

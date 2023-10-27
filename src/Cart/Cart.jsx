@@ -38,12 +38,8 @@ export default function Cart() {
                     <img className="img__cart" src="https://www.amd.com/system/files/2021-05/795377-amd-W6800-video-still-1920x600.jpg"/>
                 </Flex>
 
-
-
                 <Loading/>
-
-                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2985.4272181652723!2d60.60504997660092!3d41.55999758527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfc93b02466799%3A0xeaa23fff9be8f49d!2sDarital!5e0!3m2!1sru!2s!4v1696947102084!5m2!1sru!2s" width="800" height="600" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe> */}
-
+                
             </Box>
 
                 <Box display={"flex"} alignItems='center' justifyContent='center' w='100%' minH='180px' mb='30px' bg='rgb(89,49,244)'>  
