@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineAppstore, AiOutlineUser } from "react-icons/ai";
 import { ProductContext } from "../Context/ContextProduct";
+import CategoryBtn from "./categoryBtn/cotegoryBtn";
 
 export default function Header() {
     let [ Ktmenu, setKtmenu ] = useState(true)
@@ -28,10 +29,6 @@ export default function Header() {
 
 
     let { Product } = useContext(ProductContext)
-    
-    let [Like] = useState(true);
-    let [Shop] = useState(true);
-    let [Glob] = useState(true);
     let [TodoCart] = useState(true);
 
     // let Time = new Date().toLocaleTimeString()
@@ -60,28 +57,21 @@ export default function Header() {
                             <CloseIcon fontSize={"17px"} color={"rgb(89,49,244)"}/>
                         </Button>
                     </Box>
-                <DrawerBody p={'0 5px'}>
-                    <NavLink to="/" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"} }}>
-                        <Button onClick={onClose} bg={'gray.100'} variant={'unstyled'} borderBottom={Glob ? '' : '2px solid green'} h={"50px"} w={"100%"} p={"2px 15px"} display={"flex"} alignItems={"center"} justifyContent={'start'} mb={'10px'}>
-                            <AiOutlineAppstore fontSize={"26px"} color={Glob ? 'rgba(89,49,244,0.700)' : 'green'}/>
-                            <Text fontSize={"14px"} ml='5px' color={Glob ? 'rgba(89,49,244,0.700)' : 'green'}>общие</Text>
-                        </Button>
-                    </NavLink>
                     
-                    <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"} }}>
-                        <Button onClick={onClose} bg={'gray.100'} variant={"unstyled"} borderBottom={Like ? '' : '2px solid red'} h={"50px"} w={"100%"} p={"2px 15px"} display={"flex"} alignItems={"center"} justifyContent={'start'} mb={'10px'}>
-                            <AiOutlineHeart fontSize={"26px"} color={Like ? 'rgba(89,49,244,0.700)' : 'red'}/>
-                            <Text fontSize={"14px"} ml='5px' color={Like ? 'rgba(89,49,244,0.700)' : 'red'}>Избранное</Text>
-                        </Button>
-                    </NavLink>
+                <DrawerBody p={'10px 5px 0'}>
+                    <Link to="/">
+                        <CategoryBtn textBtn="общие" avatar={AiOutlineAppstore} color="rgba(93, 57, 255, 0.7)"/>
+                    </Link>
+                    
+                    <Link to="/Like">
+                        <CategoryBtn textBtn="Избранное" avatar={AiOutlineHeart} color="rgba(93, 57, 255, 0.7)"/>
+                    </Link>
 
-                    <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"} }}>
-                        <Button onClick={onClose} bg={'gray.100'} variant={"unstyled"} borderBottom={Shop ? '' : '2px solid rgba(30, 96, 218, 0.700)'} h={"50px"} w={"100%"} p={"2px 15px"} display={"flex"} alignItems={"center"} justifyContent={'start'} mb={'10px'}>
-                            <AiOutlineShoppingCart fontSize={"26px"} color={Shop ? "rgba(89,49,244,0.700)" : "rgba(30, 96, 218, 0.700)"}/>
-                            <Text fontSize={"14px"} ml='5px' color={Shop ? "rgba(89,49,244,0.700)" : "blue.500"}>Корзина</Text>
-                        </Button>
-                    </NavLink>
+                    <Link to="/shop" >
+                        <CategoryBtn textBtn="Корзина" avatar={AiOutlineShoppingCart} color="rgba(93, 57, 255, 0.7)"/>
+                    </Link>
                 </DrawerBody>
+
                 </DrawerContent>
             </Drawer>
 
@@ -118,7 +108,7 @@ export default function Header() {
 
             <Flex display={{base:"none",lg:"flex"}} alignItems={'center'} ml={"20px"} justifyContent={"space-between"} w={"23%"}>
                 <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"}}}>
-                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Shop ? '' : '2px solid rgba(30, 96, 218, 0.700)'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
+                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineShoppingCart fontSize={"26px"} color="rgba(89,49,244,0.700)"/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color="rgba(89,49,244,0.700)">корзина</Text>
                         <Box alignItems='center' display={Product.length ? "flex" : 'none'}  justifyContent='center' w='24px' h='24px' borderRadius='30px' bg='red' position='absolute' top='-2' right='-8px'>
@@ -127,7 +117,7 @@ export default function Header() {
                     </Button>
                 </NavLink>
                 <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
-                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={Like ? '' : '2px solid red'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
+                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineHeart fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color='rgba(89,49,244,0.700)'>нравиться</Text>
                     </Button>

@@ -19,8 +19,7 @@ function TodoCart() {
                 </Box>
                 <Box w='100%' mt='10px'>
                     {
-                        !TodoList.length &&
-                        <Box position='absolute' left='0' w='100%' m='auto'>
+                        <Box display={TodoList.length ? 'none' : 'inline-block'} position='absolute' left='0' w='100%' m='auto'>
                             <Image m='10px auto' src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-3613108-3020773.png?f=webp" w={{base:"250px" ,lg:'350px'}}/>
                             <Text textAlign={"center"} fontSize={{base:"1xs" , lg:"2xl"}} color="rgb(89,49,244)" m='10px 0 5px'>вы еще ничего не заказали</Text>
                             <Link to="/">
@@ -29,10 +28,9 @@ function TodoCart() {
                         </Box>
                     }
                     {
-                        TodoList.length &&
                         TodoList.map((el, index) => {
                             return(
-                                <Box key={index} className="HoverProdCart" bg='gray.100' w='100%' display='flex' alignItems='center' justifyContent='space-between' p={'10px 30px'} borderRadius='10px' overflow='hidden' mb='25px'>
+                                <Box key={index} className="HoverProdCart" boxShadow='0 0 10px rgba(172, 152, 253, 0.300)' bg='gray.100' w='100%' display='flex' alignItems='center' justifyContent='space-between' p={'10px 30px'} borderRadius='10px' overflow='hidden' mb='25px'>
                                     <Box w='110px'>
                                         <Image borderRadius='15px' h='100px' w='120px' objectFit='cover' src={ el.thumbnail }/>
                                     </Box>

@@ -1,9 +1,8 @@
-import { Box, Button, Checkbox, Image, Input, InputGroup, InputLeftAddon, Radio, Select, Text } from "@chakra-ui/react"
+import { Box, Button, Checkbox, Image, Input, InputGroup, InputLeftAddon, Select, Text } from "@chakra-ui/react"
 import { useContext } from "react"
 import { Link, useParams } from "react-router-dom"
 import { StoreContext } from "../Context/Context"
 import { TodoContext } from "../Context/ContextTodo"
-import { ProductContext } from "../Context/ContextProduct"
 
 function Decor() {
     let [ data ] = useContext(StoreContext)
@@ -60,14 +59,16 @@ function Decor() {
 
                     <Input className='InputPlaceholder' border='none' boxShadow='0 0 15px rgba(172, 152, 253, 0.300)' w='100%' mb='40px' display='inline' variant='outline' color='black' placeholder='Адрес' />
 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2985.4272181652723!2d60.60504997660092!3d41.55999758527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfc93b02466799%3A0xeaa23fff9be8f49d!2sDarital!5e0!3m2!1sru!2s!4v1696947102084!5m2!1sru!2s" width="100%" height="300" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d488.63404501195356!2d60.60756128665114!3d41.55999370635164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfc9d386fdaa47%3A0xaedefecf4c0be911!2sData%20ta&#39;lim%20stansiyasi!5e0!3m2!1sru!2sus!4v1698769890595!5m2!1sru!2sus" width="100%" height="300" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
-                    <Checkbox defaultChecked colorScheme='orange' size='md' isInvalid color='gray.700' mt='40px' fontWeight='600'>Я согласен с правилами покупки товаров</Checkbox>
+                    <Checkbox defaultChecked colorScheme='orange' size='md' color='gray.700' mt='40px' fontWeight='600'>Я согласен с правилами покупки товаров</Checkbox>
 
                     <Box display='flex' alignItems='center' mt='40px'>
-                        <Button onClick={() => todoAdd()} color='rgba(0, 0, 0, 0.800)' mr='10px' boxShadow='0 0 5px rgba(149, 148, 248, 0.5)'>заказать</Button>
-                        <Link to='/'>
-                            <Button color='rgba(0, 0, 0, 0.800)' boxShadow='0 0 10px rgba(149, 148, 248, 0.5)'>назад</Button>
+                        <Link to='/Cart'>
+                            <Button onClick={() => todoAdd()} color='rgba(0, 0, 0, 0.800)' className="BtnHover" mr='10px' boxShadow='0 0 5px rgba(149, 148, 248, 0.5)'>заказать</Button>
+                        </Link>
+                        <Link to={-1}>
+                            <Button color='rgba(0, 0, 0, 0.800)' className="BtnHover" boxShadow='0 0 10px rgba(149, 148, 248, 0.5)'>назад</Button>
                         </Link>
                     </Box>
                 </Box>

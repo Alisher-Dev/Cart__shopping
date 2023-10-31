@@ -41,13 +41,12 @@ export default function Like() {
                             <Image m={'0 auto'} src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-3d-cute-inbox-like-icon-png-image_6092506.png" h='320px' w='100%' objectFit={'contain'} alt="" />
                             <Text textAlign={"center"} fontSize={"2xl"} color={"rgb(89,49,244)"}>тут пока ничего нет</Text>
                             <Link to="/">
-                                <Button display={'block'} variant='unstyled' p='0 15px' className="colorWhite" m={'10px auto 0'} bg='rgb(89,49,244)'>Главное страница</Button>
+                                <Button display={'block'} variant='unstyled' color='white' p='0 15px' className="colorWhite" m={'10px auto 0'} bg='rgb(89,49,244)'>Главное страница</Button>
                             </Link>
                         </Box>
                     }
                     {
-                        Like.length &&
-                        <Text fontSize={{base:"16px", sm:"22px", lg:'26px', xl:"26px"}} borderBottom='1px solid gray' mb='15px' p='0 0 10px' fontWeight="medium" color={"gray.700"}>Мои желания</Text>
+                        <Text display={Like.length ? 'inline-block' : 'none'} fontSize={{base:"16px", sm:"22px", lg:'26px', xl:"26px"}} borderBottom='1px solid gray' mb='15px' p='0 0 10px' fontWeight="medium" color={"gray.700"}>Мои желания</Text>
                     }
                     <Grid templateColumns={{ base: 'repeat(2, 3fr)', sm: 'repeat(2, 3fr)', md: 'repeat(3, 3fr)', lg: 'repeat(4, 3fr)', xl: 'repeat(5, 3fr)', "2xl": 'repeat(5, 3fr)' }} gap={{ base: 2, md: 4 }}>
                         {

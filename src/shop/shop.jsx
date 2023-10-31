@@ -49,7 +49,6 @@ export default function Shop() {
                         </Box>
                     }
                     {
-                        Product.length &&
                         Product.map((el, index) => {
                             return(
                                 <Box key={index} className="HoverProdCart" boxShadow='0 0 15px rgba(172, 152, 253, 0.300)' w='100%' display='flex' alignItems='center' justifyContent='space-between' p={'10px 30px'} borderRadius='10px' overflow='hidden' mb='25px'>
@@ -71,9 +70,7 @@ export default function Shop() {
                         })
                     }
                 </Box>
-                    {
-                        Product.length &&
-                        <Box w='35%' minH='100%' p='5px'>
+                        <Box w='35%' minH='100%' p='5px' display={Product.length ? "inline-block" : 'none'}>
                             <Box w='100%' h='250px' boxShadow='0 0 15px rgba(172, 152, 253, 0.300)' borderRadius='10px' position='sticky' top='63px' p='20px 10px'>
                                 <Text color='blue.500' fontSize='18px' textAlign='center' fontWeight='500' fontFamily='mono' mt='10px'>В корзине {Product.length} товара</Text>
                                 <Text color='gray.700' fontSize='18px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>Общая сумма:</Text>
@@ -84,7 +81,6 @@ export default function Shop() {
                                 </Box>
                             </Box>
                         </Box>
-                    }
                 </Box>
 
                 <Box mt={'30px'} display={{base:"none", "2xl":"block"}} >
