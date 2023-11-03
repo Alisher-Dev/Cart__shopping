@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react"; 
-import ProductProvider from "./ContextProduct";
 import axios from "axios";
 import TodosProvider from "./ContextTodo";
+import ProductProvider from "./ContextProduct"
+import LoginProvider from "./ContextLogin";
 
 export const StoreContext = createContext({}) 
  
@@ -21,7 +22,9 @@ const StoreProvider = ({children}) => {
         <StoreContext.Provider value={[ data, setData ]}>
             <ProductProvider>
                 <TodosProvider>
-                    {children} 
+                    <LoginProvider>
+                        {children} 
+                    </LoginProvider>
                 </TodosProvider>
             </ProductProvider>
         </StoreContext.Provider> 

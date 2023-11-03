@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Grid, Image, Skeleton, SkeletonText, Text } from "@chakra-ui/react";
+import { Box, Button, Grid, Image, Skeleton, SkeletonText, Text } from "@chakra-ui/react";
 import { BsFillHeartFill, BsBagDash } from "react-icons/bs";
 import { Link } from "react-router-dom"
 import { StoreContext } from "../Context/Context";
@@ -23,7 +23,7 @@ export default function Block__Cart() {
         let idPro = []
         Like.map(el => idPro.push(el.id))
         if (idPro.indexOf(Item.id) === -1) {
-            setLike((el) => [ ...el, Item ])   
+            setLike((el) => [ ...el, Item ])
         }
         else{
             let liketodo = Like.filter((el) => {
@@ -31,6 +31,12 @@ export default function Block__Cart() {
             })
             setLike(liketodo)
         }
+        let idLike = Like.map(el => el.id)
+        data.filter((el) => {
+            if (idLike.includes(el.id)) {
+                
+            }
+        })
     }
 
     return (
@@ -55,9 +61,9 @@ export default function Block__Cart() {
                 }
                 {
                     data.slice(0, 60).map((item, index) => (
-                        <Box key={index} className="block_Cart" zIndex={5} overflow={'hidden'} borderRadius={'5px'} m={'0 auto'} p={{base:'2px', md:"4px", lg:"7px"}} w='95%'>
+                        <Box key={index} className="block_Cart" zIndex={5} overflow={'hidden'} borderRadius={'5px'} m={'0 auto'} p={{base:'2px', md:"4px", lg:"7px"}} w='95%' minH='300px'>
                             <Button variant={"unstyled"} onClick={() => AddLike(item)} p={{ base: "0", lg: "5px" }} position={"absolute"} bg='rgba(116, 116, 116, 0.500)' right={0} top={0} zIndex={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-                                <BsFillHeartFill fontSize={"16px"} color={'rgb(255, 235, 235)'}/>
+                                <BsFillHeartFill fontSize='15px' className='LikeBtn' color={'rgb(255, 255, 255)'}/>
                             </Button>
                             <Link to={`/products/${item.id}`}>
                                 <Box overflow={'hidden'} maxH={{base:'150px', lg:'200px'}} h='100%' p={{base:"5px", md:"2px"}}>

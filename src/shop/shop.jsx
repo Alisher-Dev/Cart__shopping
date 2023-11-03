@@ -28,7 +28,7 @@ export default function Shop() {
 
     const todoAdd = () => {
         Product.filter((el) => {
-            setTodoList((todo) => [...todo, el])
+            // setTodoList((todo) => [...todo, el])
         })
         setProduct([])
     }
@@ -40,7 +40,7 @@ export default function Shop() {
                 <Box w='65%' p='5px'>
                     {
                         !Product.length &&
-                        <Box position='absolute' w='100%' m='0 auto'>
+                        <Box position='absolute' left='0' w='100%' m='0 auto'>
                             <Image m={'0 auto'} src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png" h='320px' w='100%' objectFit={'contain'} alt="" />
                             <Text textAlign={"center"} fontSize={"2xl"} color={"rgb(89,49,244)"}>тут пока ничего нет</Text>
                             <Link to="/">
@@ -76,9 +76,11 @@ export default function Shop() {
                                 <Text color='gray.700' fontSize='18px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>Общая сумма:</Text>
                                 <Text color='black' fontSize='20px' textAlign='center' fontWeight='600' fontFamily='mono' mt='5px'>{price} $</Text>
                                 <Box w='100%' h='1px' bg='rgba(37, 37, 37, 0.4)' mt='35px'></Box>
-                                <Box display='flex' onClick={() => todoAdd()} justifyContent='center' alignItems='center' h='85px'>
-                                    <Button variant='unstyled' display='flex' color='white' p='30px 120px' bg='rgb(44, 17, 153)'>ОФОРМИТЬ</Button>
-                                </Box>
+                                <Link to='/Decor'>
+                                    <Box display='flex' onClick={() => todoAdd()} justifyContent='center' alignItems='center' h='85px'>
+                                        <Button variant='unstyled' display='flex' color='white' p='30px 120px' bg='rgb(44, 17, 153)'>ОФОРМИТЬ</Button>
+                                    </Box>
+                                </Link>
                             </Box>
                         </Box>
                 </Box>

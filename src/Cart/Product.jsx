@@ -62,8 +62,11 @@ function Product() {
                                             ))
                                         }
                                     </Box>
-                                    <Box w={{base:'86%', lg:'78%'}} h='100%' overflow='hidden' borderRadius='10px' bg='white' boxShadow='0 0 15px rgba(156, 156, 156, 0.400)'>
+                                    <Box w={{base:'86%', lg:'78%'}} position='relative' h='100%' overflow='hidden' borderRadius='10px' bg='white' boxShadow='0 0 15px rgba(156, 156, 156, 0.400)'>
                                         <Image h='100%' w='100%' objectFit='contain' src={imgTodo ? imgTodo : item.thumbnail}/>
+                                        <Button variant={"unstyled"} onClick={() => AddLike(item)} position={"absolute"} bg='rgba(116, 116, 116, 0.500)' right={0} top={0} zIndex={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
+                                            <BsFillHeartFill fontSize='15px' color={'rgb(255, 255, 255)'}/>
+                                        </Button>
                                     </Box>
                                 </Box>
                                 <Box w='100%' h='450px' display='flex' alignItems='center' p='10px 5px' justifyContent='space-between'>
@@ -71,14 +74,10 @@ function Product() {
                                         <Text fontSize={{base:"14px", sm:"16px", lg:'18px'}} mb='10px' color='gray.700' fontWeight={700}>{item.title}</Text>
                                         <Box display='flex' alignItems='center' mb='15px'>
                                             <Image w={{base:'12px', lg:'16px'}} mr='2px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
-                                            <Image w={{base:'12px', lg:'16px'}} mr='2px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
-                                            <Image w={{base:'12px', lg:'16px'}} mr='2px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
-                                            <Image w={{base:'12px', lg:'16px'}} mr='2px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
-                                            <Image w={{base:'12px', lg:'16px'}} mr='2px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
-                                            <Text ml='15px' color='black' fontSize={{base:"14px", sm:"14px", lg:'16px'}} fontWeight='600' fontFamily='heading'>{ item.rating }</Text>
+                                            <Text ml='5px' color='black' fontSize={{base:"14px", sm:"14px", lg:'16px'}} fontWeight='600' fontFamily='heading'>{ item.rating }</Text>
                                         </Box>
                                         {/* <Text fontSize={{base:"14px", lg:'16px'}} mb='10px' color='rgb(51, 41, 92)' fontWeight={400} fontFamily='monospace'> {item.stock}</Text> */}
-                                        <Text fontSize={{base:"14px", sm:"16px", lg:'18px'}} mb='10px' color='rgb(51, 41, 92)' fontWeight={400} fontFamily='monospace'>{item.price} $</Text>
+                                        <Text fontSize={{base:"14px", sm:"16px", lg:'18px'}} mb='10px' color='rgb(99, 88, 255)' fontWeight={400} fontFamily='monospace'>цена товара {item.price}$</Text>
                                         <Text fontSize={{base:"14px", sm:"16px", lg:'16px'}} mb='10px' color='gray.700' fontWeight={400}>{item.description}</Text>
                                         <Box position='absolute' bottom='10px' left='8px' right='8px' display='flex'>
                                             <Button className='buton' onClick={() => AddProduct(item)} variant='unstyled' border='1px solid rgba(56, 86, 255, 0.897)' color='rgba(56, 86, 255, 0.897)' w='50%' p={{base:'5px', sm:'5px 20px'}} fontSize={{base:"12px", sm:"14px", lg:'16px'}} mr='10px' >Добавить в корзину</Button>
@@ -94,30 +93,28 @@ function Product() {
                                         <Grid templateColumns={{ base: 'repeat(2, 3fr)', sm: 'repeat(2, 3fr)', md: 'repeat(3, 3fr)', lg: 'repeat(4, 3fr)', xl: 'repeat(5, 3fr)', "2xl": 'repeat(5, 3fr)' }} gap={{ base: 2, md: 4 }} w='100%' >
                                             {
                                                 categoryData.slice(0, 5).map((item, index) => (
-                                                    <Box key={index} className="block_Cart" overflow={'hidden'} zIndex={5} borderRadius={'5px'} m={'0 auto 15px'} position={'relative'} p={{base:'2px', md:"4px", lg:"7px"}} w='100%' >
-                                                        <Button variant={"unstyled"} onClick={() => AddLike(item)} p={{ base: "0", lg: "5px" }}  position={"absolute"} bg='rgba(116, 116, 116, 0.500)' right={0} top={0} zIndex={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-                                                            <BsFillHeartFill fontSize={"16px"} color={'rgb(255, 235, 235)'}/>
+                                                    <Box key={index} className="block_Cart" zIndex={5} overflow={'hidden'} borderRadius={'5px'} m={'0 auto'} p={{base:'2px', md:"4px", lg:"7px"}} w='95%' minH='300px'>
+                                                        <Button variant={"unstyled"} onClick={() => AddLike(item)} p={{ base: "0", lg: "5px" }} position={"absolute"} bg='rgba(116, 116, 116, 0.500)' right={0} top={0} zIndex={2} display={'flex'} alignItems={'center'} justifyContent={'center'}>
+                                                            <BsFillHeartFill fontSize='15px' color={'rgb(255, 255, 255)'}/>
                                                         </Button>
                                                         <Link to={`/products/${item.id}`}>
-                                                            <Box onClick={() => setimgTodo('')} overflow={'hidden'} h='200px' p={{base:"5px", md:"2px"}}>
-                                                                <Image cursor={'pointer'} w='100%' h='100%' objectFit={"cover"} src={item.thumbnail} borderRadius='lg' />
+                                                            <Box overflow={'hidden'} maxH={{base:'150px', lg:'200px'}} h='100%' p={{base:"5px", md:"2px"}}>
+                                                                <Image cursor={'pointer'} w='100%' h='100%' objectFit="contain" src={item.thumbnail} borderRadius='lg' />
                                                             </Box>
                                                         </Link>
-                                                        <Box position='relative' mb='60px' maxH='76px' overflow='hidden' p='5px'>
-                                                            <Text fontSize="14px" color='gray.600' fontWeight={700} overflow={'hidden'}>{item.title}</Text>
+                                                        <Box h='100px' overflow='hidden' p='5px'>
+                                                            <Text fontSize={{base:"12px", lg:"14px"}} color='gray.600' fontWeight={700} overflow={'hidden'}>{item.title}</Text>
                                                             <Text fontSize="12px" color='gray.500' fontWeight={400} overflow={'hidden'}>{item.description}</Text>
                                                         </Box>
-                                                        <Box display='flex' alignItems='center' mb='35px' position='absolute' bottom='5px' left='8px'>
-                                                            <Image w='12px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
-                                                            <Text ml='5px' color='black' fontSize='12px' fontFamily='sans-serif'>{ item.rating }</Text>
-                                                        </Box>
-                                                        <Box>
-                                                            <ButtonGroup spacing='2' display={'flex'} alignItems={'center'} position='absolute' bottom='5px' left='8px' right='8px' justifyContent={'space-between'} >
-                                                                <Text color='blue.600' fontSize={{ base: "13px", sm: '14px', md: "16px" }} fontWeight={"600"}>{item.price} $</Text>
-                                                                <Button onClick={() => AddProduct(item)} variant='solid' colorScheme='blue' p={{base:'0', md:"5px 15px"}} >
-                                                                    <BsBagDash />
-                                                                </Button>
-                                                            </ButtonGroup>
+                                                        <Box display='flex' alignItems='center' justifyContent='space-between'>
+                                                            <Box display='flex' alignItems='center'>
+                                                                <Image w='12px' src='https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png'/>
+                                                                <Text ml='5px' color='black' fontSize='12px' fontFamily='sans-serif'>{ item.rating }</Text>
+                                                            </Box>
+                                                            <Text color='blue.600' fontSize={{ base: "13px", sm: '14px', md: "16px" }} fontWeight="600">{item.price} $</Text>
+                                                            <Button onClick={() => AddProduct(item)} variant='solid' colorScheme='blue' p={{base:'0', md:"5px 15px"}} >
+                                                                <BsBagDash />
+                                                            </Button>
                                                         </Box>
                                                     </Box>
                                                 ))
