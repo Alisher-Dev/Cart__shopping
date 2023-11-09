@@ -4,12 +4,17 @@ import Block__Cart from "./Block__Cart";
 import CenterMode from "./Carusel";   
 import Loading from "./loading";
 import Mini_info_Blok from "./Mini__Info_Blok";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
     return(
         <Box display='flex' flexDirection='column' alignItems='center'>
             <Box maxW='1300px' w='100%' p="5px 10px">
-            
+
+                <Link to='https://t.me/ALISH_20_06' >
+                    <Box color='white' bg='rgb(89,49,244)' padding='5px 10px' borderRadius='10px' fontSize='12px' position='fixed' right='10px' bottom='10px' textAlign='center' zIndex='10'>если есть проблема пишыте мне <br /> Alisher</Box>
+                </Link>
+
                 <CenterMode />
 
                 <Box mt={'30px'} display={{base:"none", xl:"block"}}>

@@ -27,9 +27,6 @@ export default function Shop() {
     }
 
     const todoAdd = () => {
-        Product.filter((el) => {
-            // setTodoList((todo) => [...todo, el])
-        })
         setProduct([])
     }
 

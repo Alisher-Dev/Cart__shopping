@@ -58,7 +58,9 @@ function Product() {
                                     <Box h='100%' w={{base:'90px', lg:'20%'}} mr='5px' borderRadius='10px' bg='white' boxShadow='0 0 15px rgba(156, 156, 156, 0.400)' p={{base:'5px', lg:'10px 15px'}} overflow='auto' >
                                         {
                                             item.images.map((iteM, indeX) => (
-                                                <Image key={indeX} onClick={() => setimgTodo(iteM)} src={iteM} w='100%' h='120px' objectFit='contain' mt='5px' p='0 0 10px' cursor='pointer' borderBottom='1px solid gray'/>
+                                                <>
+                                                    <Image key={indeX} onClick={() => setimgTodo(iteM)} src={iteM} w='100%' h='120px' objectFit='contain' mt='5px' p='0 0 10px' cursor='pointer' borderBottom='1px solid gray'/>
+                                                </>
                                             ))
                                         }
                                     </Box>
@@ -98,7 +100,7 @@ function Product() {
                                                             <BsFillHeartFill fontSize='15px' color={'rgb(255, 255, 255)'}/>
                                                         </Button>
                                                         <Link to={`/products/${item.id}`}>
-                                                            <Box overflow={'hidden'} maxH={{base:'150px', lg:'200px'}} h='100%' p={{base:"5px", md:"2px"}}>
+                                                            <Box overflow={'hidden'} onClick={() => setimgTodo('')} maxH={{base:'150px', lg:'200px'}} h='100%' p={{base:"5px", md:"2px"}}>
                                                                 <Image cursor={'pointer'} w='100%' h='100%' objectFit="contain" src={item.thumbnail} borderRadius='lg' />
                                                             </Box>
                                                         </Link>

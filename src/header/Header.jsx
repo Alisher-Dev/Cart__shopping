@@ -1,7 +1,7 @@
 import { Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Input, Text, useDisclosure } from "@chakra-ui/react";
 import Logo from "../img/logo.png"
 import { HamburgerIcon, CloseIcon, Search2Icon } from '@chakra-ui/icons'
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineAppstore, AiOutlineUser } from "react-icons/ai";
 import { ProductContext } from "../Context/ContextProduct";
@@ -85,11 +85,11 @@ export default function Header() {
                 <Box alignItems={"center"} display='flex' justifyContent={"center"} h={"40px"} w={"40px"} mr='5px'> 
                     <Search2Icon fontSize="25px" color={"rgb(89,49,244)"}/>
                 </Box>
-                <NavLink to="/Cart" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
+                <Link to="/Cart">
                     <Button variant={"unstyled"} borderBottom={TodoCart ? '' : '2px solid green'} h="40px" w='40px' p="0" display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineUser fontSize={"27px"} color={TodoCart ? 'rgba(90,10,200,1)' : 'green'}/>
                     </Button>
-                </NavLink>
+                </Link>
             </Box>
             <Box onClick={() => [Ktmenu ? setKtmenu(false) : setKtmenu(true), Ktmenu ? setleng__Kt(false) : setleng__Kt(true)]} cursor={"pointer"} h={"50px"} w={{base:"70px","2xl":"150px"}} ml="20px" display={{base:"none",lg:"flex"}} alignItems={'center'} borderRadius={"5px"} justifyContent={'center'} bg={"rgb(89,49,244)"}>
                 <HamburgerIcon className={Ktmenu ? "Burgerr" : ""} display={Ktmenu ? "flex" : "none"} color={"white"} boxSize={"40px"} p={"0 5px"}/>
@@ -107,7 +107,7 @@ export default function Header() {
 
 
             <Flex display={{base:"none",lg:"flex"}} alignItems={'center'} ml={"20px"} justifyContent={"space-between"} w={"23%"}>
-                <NavLink to="/shop" style={({ isActive, isPending }) => {return { borderRadius: isActive ? '5px' : "5px"}}}>
+                <Link to="/shop">
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineShoppingCart fontSize={"26px"} color="rgba(89,49,244,0.700)"/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color="rgba(89,49,244,0.700)">корзина</Text>
@@ -115,19 +115,20 @@ export default function Header() {
                             <Text color='white' fontSize='16px' fontWeight='700'>{Product.length}</Text>
                         </Box>
                     </Button>
-                </NavLink>
-                <NavLink to="/Like" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
+                </Link>
+                <Link to="/Like">
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineHeart fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
                         <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color='rgba(89,49,244,0.700)'>нравиться</Text>
                     </Button>
-                </NavLink>
-                <NavLink to="/Cart" style={({ isActive, isPending }) => { return { borderRadius: isActive ? '5px' : "5px"}}}>
+                </Link>
+                <Link to="/Cart">
                     <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={TodoCart ? '' : '2px solid green'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
                         <AiOutlineUser fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
                         <Text fontSize={"14px"} display={{lg:"none", xl:"block"}} color='rgba(89,49,244,0.700)'>профиль</Text>
                     </Button>
-                </NavLink>
+                </Link>
+
             </Flex>
             </Box>
             <Box display={{base:"none", lg:"flex"}} p={Ktmenu ? "0" : {base:"10px 15px",md:"10px 50px",lg:"10px 60px", xl:"10px 100px"}} justifyContent={"space-between"} alignItems={"center"} h={Ktmenu ? "0px" : "92vh"} className="Ktmenu" transition={"all 0.3s 0.1s ease"} w={"100%"} position={"fixed"} top={{base:"90px", lg:"100px"}} zIndex={10}>
