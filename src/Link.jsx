@@ -1,21 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import Cart from "./Cart/Cart";
-import Shop from "./shop/shop";
-import Like from "./Like/Like";
-import TodoCart from "./Cart/Todo";
-import Product from "./Cart/Product";
-import Decor from "./Cart/decor";
-import PageNot from "./Cart/Error/404";
+
+import PageNot from "./Error/404";
+import Main from "./Main/Main";
 
 export default function Link() {
     return (
       <Routes>
-        <Route path={"/"} element={<Cart />} />
-        <Route path={"/shop"} element={<Shop />} />
-        <Route path={"/Cart"} element={<TodoCart />} />
-        <Route path={"/Like"} element={<Like />} />
-        <Route path={"/products/:id"} element={<Product />} />
-        <Route path={"/Decor/:id"} element={<Decor />} />
+        <Route path={"/"} element={<Main />} />
         <Route path="*" element={<PageNot />} />
       </Routes>
     );

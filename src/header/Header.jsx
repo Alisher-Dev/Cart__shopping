@@ -1,139 +1,93 @@
-import { Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Input, Text, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
 import Logo from "../img/logo.png"
-import { HamburgerIcon, CloseIcon, Search2Icon } from '@chakra-ui/icons'
+import { HamburgerIcon, Search2Icon } from '@chakra-ui/icons'
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineAppstore, AiOutlineUser } from "react-icons/ai";
-import { ProductContext } from "../Context/ContextProduct";
-import CategoryBtn from "./categoryBtn/cotegoryBtn";
+import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai";
 
 export default function Header() {
-    let [ Ktmenu, setKtmenu ] = useState(true)
-
-    let [ScrolL, setScrolL] = useState(true)
-    useEffect(() => {
-        let handelScroll = () => {
-            if (window.scrollY > 210) {
-                setScrolL(true)
-            }
-            else{
-                setScrolL(true)
-            }
-            setKtmenu(true)
-        }
-        window.addEventListener('scroll', handelScroll)
-        return () => {
-            window.removeEventListener('scroll', handelScroll)
-        }
-    }, [])
-
-
-    let { Product } = useContext(ProductContext)
-    let [TodoCart] = useState(true);
-
-    // let Time = new Date().toLocaleTimeString()
-
-    let [leng__Kt, setleng__Kt] = useState(true)
-
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const [placement] = useState('left')
+    
     return(
-        <Box h={{base:"70px",lg:"100px"}} w='100%' display='flex' justifyContent='center' boxShadow='0 5px 10px rgba(172, 152, 253, 0.150)'>
-        <Flex flexDirection={"column"} className={ScrolL ? 'noscrolling' : 'scrolling'} transition={"all 0.4s ease"} zIndex={"10"} alignItems={"center"} justifyContent={"center"} h={{base:"70px",lg:"100px"}} maxW='1300px' w='100%' p="0 10px">
-            <Box w={"100%"} justifyContent={{base:"space-between",lg:"start"}} alignItems={"center"} display={"flex"}>
+        <Box w='100%' display='flex' justifyContent='center' flexDirection='column' boxShadow='0 5px 10px rgba(172, 152, 253, 0.150)'>
 
-            <Box display={{base:"flex", lg:"none"}} w='140px'>
-                <Button onClick={onOpen} justifyContent='start'>
-                    <HamburgerIcon fontSize={{base:"26px", sm:"30px", md:"38px"}} color={"rgb(89,49,244)"}/>
-                </Button>
+            <Box position='absolute' left='0' top='0' right='0' bg='rgba(174, 122, 252, 0.15)'>
+                <Box maxW='1500px' w='100%' h='40px' m='0 auto' display='flex' alignItems='center' justifyContent='space-between'>
+                    <Box display='flex' alignItems='center'>
+                        <Text m='0 10px 0 0' p='0 10px 0 0' borderRight='0.2px solid rgba(102, 102, 102, 0.2)'>+998 (99) 202 78 06</Text>
+                        <a href="http://youtube.com" target="blanck">Store location</a>
+                    </Box>
+                    <Box display='flex' alignItems='center'>
+                        <Text m='0 10px 0 0' p='0 10px 0 0' borderRight='0.2px solid rgba(102, 102, 102, 0.2)' cursor='pointer'>RUS</Text>
+                        <a href="http://youtube.com" target="blanck">signup / login</a>
+                    </Box>
+                </Box>
             </Box>
 
-            <Drawer placement={placement} size={'full'} onClose={onClose} isOpen={isOpen}>
-                <DrawerOverlay/>
-                <DrawerContent className='burgerMn'>
-                    <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
-                        <DrawerHeader color={"rgb(89,49,244)"} borderBottomWidth='1px'>Menu</DrawerHeader>
-                        <Button display={'inline-block'} onClick={onClose} m={'0 20px 0 0'}>
-                            <CloseIcon fontSize={"17px"} color={"rgb(89,49,244)"}/>
-                        </Button>
-                    </Box>
-                    
-                <DrawerBody p={'10px 5px 0'}>
-                    <Link to="/">
-                        <CategoryBtn textBtn="общие" avatar={AiOutlineAppstore} color="rgba(93, 57, 255, 0.7)"/>
-                    </Link>
-                    
-                    <Link to="/Like">
-                        <CategoryBtn textBtn="Избранное" avatar={AiOutlineHeart} color="rgba(93, 57, 255, 0.7)"/>
-                    </Link>
+            <Box w={"100%"} justifyContent={{base:"space-between",lg:'space-between'}} mt='40px' alignItems="center" display="flex" h='80px'>
 
-                    <Link to="/shop" >
-                        <CategoryBtn textBtn="Корзина" avatar={AiOutlineShoppingCart} color="rgba(93, 57, 255, 0.7)"/>
-                    </Link>
-                </DrawerBody>
-
-                </DrawerContent>
-            </Drawer>
-
+                <Box display={{base:"flex", lg:"none"}} w='140px'>
+                    <Button variant='unstyled' justifyContent='start'>
+                        <HamburgerIcon fontSize={{base:"26px", sm:"30px", md:"38px"}} color="rgb(89,49,244)"/>
+                    </Button>
+                </Box>
             
-            <Link to={"/"}>
-                <Box>
-                    <img className="Logo" src={Logo} alt="" />
-                </Box>
-            </Link>
-            <Box display={{base:"flex", lg:"none"}} alignItems='center' w='140px' justifyContent="space-around">
-                <Box alignItems={"center"} display='flex' justifyContent={"center"} h={"40px"} w={"40px"} mr='5px'> 
-                    <Search2Icon fontSize="25px" color={"rgb(89,49,244)"}/>
-                </Box>
-                <Link to="/Cart">
-                    <Button variant={"unstyled"} borderBottom={TodoCart ? '' : '2px solid green'} h="40px" w='40px' p="0" display={"flex"} alignItems={"center"} flexDirection={"column"}>
-                        <AiOutlineUser fontSize={"27px"} color={TodoCart ? 'rgba(90,10,200,1)' : 'green'}/>
-                    </Button>
-                </Link>
-            </Box>
-            <Box onClick={() => [Ktmenu ? setKtmenu(false) : setKtmenu(true), Ktmenu ? setleng__Kt(false) : setleng__Kt(true)]} cursor={"pointer"} h={"50px"} w={{base:"70px","2xl":"150px"}} ml="20px" display={{base:"none",lg:"flex"}} alignItems={'center'} borderRadius={"5px"} justifyContent={'center'} bg={"rgb(89,49,244)"}>
-                <HamburgerIcon className={Ktmenu ? "Burgerr" : ""} display={Ktmenu ? "flex" : "none"} color={"white"} boxSize={"40px"} p={"0 5px"}/>
-                <CloseIcon className={Ktmenu ? "" : "Burgerr"} display={Ktmenu ? "none" : "flex"} color={"white"} boxSize={"40px"} p={"0 10px"} />
-                <Text display={{base:"none","2xl":"flex"}} p={"0 0 0 10px"} fontSize={"18px"} lineHeight={"28px"} fontWeight={"600"} color={"white"}>Каталог</Text>
-            </Box>
-            <Box ml={"20px"} border={"1.5px solid rgb(89,49,244)"} overflow={"hidden"} display={{base:"none",lg:"flex"}} borderRadius={"10px"} w={{base:"55%", "2xl":"50%"}} h={"50px"} bg={"rgba(52, 104, 235, 0.150)"}>
-                <Input className="InputSearch" h={"100%"} w={"90%"} p={"0 0 0 10px"} fontSize={"18px"} variant='unstyled' color={'rgb(30, 12, 102)'} placeholder='Я ищу'/>
-                <Button variant={'ghost'} h={"100%"} w={"10%"}>
-                    <Box display={"flex"} alignItems={"center"} justifyContent={"center"} h={"100%"} w={"10%"}>
-                        <Search2Icon fontSize={"25px"} color={"rgb(89,49,244)"}/>
+                <Link to={"/"}>
+                    <Box w='250px'>
+                        <img className="Logo" src={Logo} alt="error" width='140px'/>
                     </Box>
-                </Button>
+                </Link>
+            
+                <Box display={{base:"flex", lg:"none"}} alignItems='center' w='140px' justifyContent="space-around">
+                    <Box alignItems="center" display='flex' justifyContent="center" h="40px" w="40px"> 
+                        <Search2Icon fontSize="25px" color="rgb(89,49,244)"/>
+                    </Box>
+                    <Link to="/Cart">
+                        <Button variant="unstyled" h="40px" w='40px' p="0" display="flex" alignItems="center" flexDirection="column">
+                            <AiOutlineUser fontSize="27px" color='rgba(90,10,200,1)'/>
+                        </Button>
+                    </Link>
+                </Box>
+
+                <Box cursor="pointer" h="50px" w={{base:"70px","2xl":"40%"}} overflow='hidden' position='relative' display={{base:"none",lg:"flex"}} alignItems='center' borderRadius="5px" justifyContent='center' bg="rgba(88, 49, 244, 0.05)">
+                    <Input placeholder="search"  overflow='hidden' border='none' h='100%' w='100%' p='0 55px 0 15px'/>
+                    <Box bg='rgba(219, 210, 255, 0.7)' backdropFilter='blur(2px)' zIndex='2' h='100%' w='50px' display='flex' alignItems='center' justifyContent='center' position='absolute' right='0'>
+                        <Search2Icon fontSize={"23px"} color='rgba(89,49,244,0.700)' />
+                    </Box>
+                </Box>
+
+                <Flex display={{base:"none",lg:"flex"}} alignItems='center' w='250px' justifyContent="space-between">
+                    <Link to="/shop">
+                        <Button variant="unstyled" h={"55px"} minW={'70px'} maxW={'80px'} display={"flex"} alignItems={"center"} flexDirection={"column"}>
+                            <AiOutlineShoppingCart fontSize={"26px"} color="rgba(89,49,244,0.700)"/>
+                            <Box alignItems='center' justifyContent='center' w='24px' h='24px' borderRadius='30px' bg='red' position='absolute' top='-2' right='-8px'>
+                                <Text color='white' fontSize='16px' fontWeight='700'>0</Text>
+                            </Box>
+                        </Button>
+                    </Link>
+                    <Link to="/Like">
+                        <Button variant="unstyled" h={"55px"} minW={'70px'} maxW={'80px'} display={"flex"} alignItems={"center"} flexDirection={"column"}>
+                            <AiOutlineHeart fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
+                        </Button>
+                    </Link>
+                    <Link to="/Cart">
+                        <Button variant="unstyled" h="55px" minW='70px' maxW='80px' display="flex" alignItems="center" flexDirection="column">
+                            <AiOutlineUser fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
+                        </Button>
+                    </Link>
+                </Flex>
+
             </Box>
 
 
-            <Flex display={{base:"none",lg:"flex"}} alignItems={'center'} ml={"20px"} justifyContent={"space-between"} w={"23%"}>
-                <Link to="/shop">
-                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
-                        <AiOutlineShoppingCart fontSize={"26px"} color="rgba(89,49,244,0.700)"/>
-                        <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color="rgba(89,49,244,0.700)">корзина</Text>
-                        <Box alignItems='center' display={Product.length ? "flex" : 'none'}  justifyContent='center' w='24px' h='24px' borderRadius='30px' bg='red' position='absolute' top='-2' right='-8px'>
-                            <Text color='white' fontSize='16px' fontWeight='700'>{Product.length}</Text>
-                        </Box>
-                    </Button>
-                </Link>
-                <Link to="/Like">
-                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
-                        <AiOutlineHeart fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
-                        <Text fontSize={"14px"}  display={{lg:"none", xl:"block"}} color='rgba(89,49,244,0.700)'>нравиться</Text>
-                    </Button>
-                </Link>
-                <Link to="/Cart">
-                    <Button variant={"solid"} border={"0.5px solid rgba(89,49,244,0.500)"} borderBottom={TodoCart ? '' : '2px solid green'} h={"55px"} minW={'70px'} maxW={'80px'} p={"0 8px"} display={"flex"} alignItems={"center"} flexDirection={"column"}>
-                        <AiOutlineUser fontSize={"26px"} color='rgba(89,49,244,0.700)'/>
-                        <Text fontSize={"14px"} display={{lg:"none", xl:"block"}} color='rgba(89,49,244,0.700)'>профиль</Text>
-                    </Button>
-                </Link>
+            {/* <Box display={{base:"none", lg:"flex"}} justifyContent="space-between" overflow='hidden' className="Ktmenu" transition={"all 0.3s 0.1s ease"} w={"100%"} position={"fixed"} top={{base:"90px", lg:"100px"}} zIndex={10}>
+                <Katalog display="vertical"/>
+            </Box> */}
 
-            </Flex>
-            </Box>
-            <Box display={{base:"none", lg:"flex"}} p={Ktmenu ? "0" : {base:"10px 15px",md:"10px 50px",lg:"10px 60px", xl:"10px 100px"}} justifyContent={"space-between"} alignItems={"center"} h={Ktmenu ? "0px" : "92vh"} className="Ktmenu" transition={"all 0.3s 0.1s ease"} w={"100%"} position={"fixed"} top={{base:"90px", lg:"100px"}} zIndex={10}>
-            </Box>
-        </Flex>
+            {/* <Box display={{base:"flex", lg:"none"}} w='100%' overflow='auto' position='relative' top='10px'>
+                <Katalog display="garizontal"/>
+            </Box> */}
+
+
         </Box>
     )
 }
+

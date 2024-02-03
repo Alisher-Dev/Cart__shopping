@@ -2,23 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./style.css"
 import "./style.env.css"
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 import Header from './header/Header';
 import Footer from './Footer/footer';
 import Link from './Link';
 import { BrowserRouter } from 'react-router-dom';
-import StoreProvider from './Context/Context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <ChakraProvider>
-      <StoreProvider>
+      <Box display='flex' alignItems='center' flexDirection='column' position='relative'>
+        <Box maxW='1500px' w='100%'>
           <Header/>
           <Link/>
           <Footer/>
-      </StoreProvider>
+        </Box>
+      </Box>
     </ChakraProvider>
   </BrowserRouter>
 )
