@@ -1,7 +1,7 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import Products from "../Products/menuProducts";
 import CaruselProduct from "../carusel/carusel-product";
-import CaruselOfisha from "../carusel/carusel-ofish";
+import CaruselOfisha, { CaruselTopProduct } from "../carusel/carusel-ofish";
 
 export default function Main() {
   return (
@@ -15,80 +15,28 @@ export default function Main() {
           gap="10px"
           alignItems="center">
           <CaruselOfisha />
-          <Box
-            className="boxImageCarusel"
-            w={{ base: "60%", xl: "50%" }}
-            position="relative"
-            bg="blackAlpha.900"
-            h="100%"
-            display={{ base: "none", lg: "flex" }}
-            alignItems="center"
-            borderRadius="10px">
-            <Box>
-              <Text
-                ml="10px"
-                fontWeight="500"
-                color="white"
-                fontSize={{
-                  base: "14px",
-                  sm: "16px",
-                  xl: "18px",
-                }}>
-                MODERN MOBILE
-              </Text>
-              <Text
-                ml="10px"
-                fontWeight="500"
-                color="white"
-                fontSize={{
-                  base: "20px",
-                  sm: "22px",
-                  xl: "24px",
-                }}>
-                New Collection
-              </Text>
-              <Text
-                ml="10px"
-                fontWeight="500"
-                color="red.500"
-                fontSize={{
-                  base: "17px",
-                  sm: "18px",
-                  xl: "20px",
-                }}>
-                $99.00
-              </Text>
-            </Box>
-            <Image
-              className="tronsitionImg"
-              position="absolute"
-              right="10px"
-              src="https://ongpng.com/wp-content/uploads/2023/03/6.boat_xtend_1500x1500.png"
-              alt="error"
-              w="50%"
-            />
-          </Box>
+          <CaruselTopProduct />
         </Box>
 
         <Box
           display="flex"
           position="relative"
           alignItems="center"
-          boxShadow="10px 10px 5px rgba(172, 152, 253, 0.3)"
           justifyContent="center"
           borderRadius="5px"
-          mt="25px"
+          mt="40px"
           border="1px solid rgb(90,49,244)">
           <Box
             bg="white"
             position="absolute"
-            top="-20px"
+            top={{ base: "-10px", sm: "-15px", lg: "-20px" }}
             w="90%"
             zIndex="2"
             borderRadius="10px">
             <Text
               fontSize={{ base: "16px", sm: "22px", lg: "26px", xl: "26px" }}
               fontWeight="medium"
+              textAlign="center"
               p="0 20px"
               color={"gray.700"}>
               Хиты продаж
@@ -104,12 +52,6 @@ export default function Main() {
             <CaruselProduct grids="2" />
           </Box>
         </Box>
-
-        {/* <Box mt={{base:'10px', xl:'40px'}}>
-                    <Box display={'flex'} mb='15px' alignItems={'center'} justifyContent={'space-between'}>
-                        <Text fontSize={{base:"16px", sm:"22px", lg:'26px', xl:"26px"}} fontWeight="medium" color={"gray.700"}>Хиты продаж</Text>
-                    </Box>
-                </Box> */}
 
         <Box mt={{ base: "10px", xl: "40px" }}>
           <Box

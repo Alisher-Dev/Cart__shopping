@@ -35,7 +35,7 @@ export default function CaruselProduct(props) {
         }}
         className="mySwiper">
         {data?.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <Box
               key={item.id}
               cursor="pointer"
@@ -57,7 +57,7 @@ export default function CaruselProduct(props) {
                   alt="error is img"
                   h="100%"
                   w="100%"
-                  objectFit="cover"
+                  objectFit="contain"
                 />
                 <Button
                   className="btnLike"

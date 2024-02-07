@@ -36,10 +36,10 @@ export default function Products() {
             className="imagesCarusel"
             overflow="hidden"
             borderRadius="5px"
-            m={"30px auto"}
+            m={{ base: "5px auto", lg: "15px auto" }}
             p={{ base: "5px", lg: "10px" }}
             boxShadow="0 0 10px rgba(172, 152, 253, 0.4)"
-            h={{ base: "90%", sm: "280px", lg: "350px" }}
+            h={{ base: "250px", sm: "280px", lg: "350px" }}
             w="100%"
             maxW="260px">
             <Box
@@ -52,7 +52,7 @@ export default function Products() {
                 alt="error is img"
                 h="100%"
                 w="100%"
-                objectFit="cover"
+                objectFit="contain"
               />
               <Button
                 className="btnLike"

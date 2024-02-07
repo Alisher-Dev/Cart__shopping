@@ -122,3 +122,58 @@ export default function CaruselOfisha() {
     </>
   );
 }
+
+export function CaruselTopProduct() {
+  return (
+    <Box
+      className="boxImageCarusel"
+      w={{ base: "60%", xl: "50%" }}
+      position="relative"
+      bg="blackAlpha.900"
+      h="100%"
+      display={{ base: "none", lg: "flex" }}
+      alignItems="center"
+      borderRadius="10px">
+      <Box p="5px 20px">
+        <Text
+          fontWeight="500"
+          color="white"
+          fontSize={{
+            base: "20px",
+            sm: "22px",
+            xl: "24px",
+          }}>
+          New Collection
+        </Text>
+        <Text
+          fontWeight="500"
+          color="white"
+          fontSize={{
+            base: "13px",
+            sm: "15px",
+            xl: "17px",
+          }}>
+          Modern mobile
+        </Text>
+        <Text
+          fontWeight="500"
+          color="red.500"
+          fontSize={{
+            base: "17px",
+            sm: "18px",
+            xl: "20px",
+          }}>
+          $99.00
+        </Text>
+      </Box>
+      <Image
+        className="tronsitionImg"
+        position="absolute"
+        right="10px"
+        src="https://ongpng.com/wp-content/uploads/2023/03/6.boat_xtend_1500x1500.png"
+        alt="error"
+        w="50%"
+      />
+    </Box>
+  );
+}
